@@ -50,13 +50,14 @@ jobs: # 수행할 내용.
       with:
         repository: Ahnchaeyun/my_deploy #본인에 맞게 수정
         ref: main  # branch
-    
+
     - name: Checkout Deployment Repository
       uses: actions/checkout@v4
       with:
         repository: Ahnchaeyun/my_deploy #본인에 맞게 수정
         ref: main  # branch
         token: ${{ secrets.GH_TOKEN }}
+
 
     - name: k8s manifest update
       run: |
@@ -71,3 +72,4 @@ jobs: # 수행할 내용.
         git add deployment.yml
         git commit -m "Update image tag"
         git push origin main
+
